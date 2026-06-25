@@ -1,0 +1,22 @@
+{
+  "name": "locket-onl",
+  "description": "Share real-time photos with close friends, add captions, overlays, and interact instantly.",
+  "author": "vu thien nhan",
+  "private": true,
+  "version": "0.0.0",
+  "license": "MIT",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w main",
+    "build": "npm run build -w main",
+    "start": "cd apps/main && node server.js",
+    "lint": "npm run lint -ws",
+    "dev:main": "npm run dev -w main",
+    "build:main": "npm run build -w main"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.62.2"
+  }
+}
