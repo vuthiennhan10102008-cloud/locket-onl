@@ -3,9 +3,8 @@ services:
     name: locketonl
     env: node
     plan: free
-    root: apps/main
-    buildCommand: npm install && npm run build
-    startCommand: npm start
+    buildCommand: npm install && npm run build -w main
+    startCommand: cd apps/main && npm start
     envVars:
       - key: NODE_ENV
         value: production
