@@ -1,17 +1,43 @@
 # Hướng dẫn Deploy lên Render
 
 ## Yêu cầu
+- Tài khoản GitHub (https://github.com)
 - Tài khoản Render (https://render.com)
-- Repository GitHub của dự án
 
 ## Các bước Deploy
 
-### 1. Chuẩn bị Repository
+### 1. Tạo Repository GitHub
+
+#### Step 1: Tạo repository mới
+1. Vào https://github.com/new
+2. Điền thông tin:
+   - **Repository name**: `locket-onl` (hoặc tên khác tùy ý)
+   - **Description**: `Share real-time photos with close friends`
+   - **Public/Private**: Chọn Public (để Render có thể access)
+   - **Initialize**: Chọn "Add .gitignore" → "Node"
+3. Nhấp "Create repository"
+
+#### Step 2: Push code lên GitHub
 ```bash
-# Commit các thay đổi
-git add .
-git commit -m "Setup Render deployment"
-git push origin main
+# Đặt remote URL
+git remote add origin https://github.com/YOUR_USERNAME/locket-onl.git
+
+# Đặt default branch là main (nếu cần)
+git branch -M main
+
+# Push code lên
+git push -u origin main
+```
+
+**Lưu ý**: Thay `YOUR_USERNAME` bằng username GitHub của bạn
+
+#### Step 3: Thiết lập SSH (tùy chọn, nhưng khuyến nghị)
+Nếu bạn muốn tránh nhập password mỗi lần push:
+```bash
+# Tạo SSH key (nếu chưa có)
+ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# Copy key vào GitHub Settings → SSH and GPG keys
 ```
 
 ### 2. Tạo Web Service trên Render
